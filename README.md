@@ -6,4 +6,4 @@
 
 ## Ссылка на GitHub Pages
 
-https://msonini.github.io/russian-travel/
+https://msonini.github.io/mesto/
