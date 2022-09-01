@@ -1,0 +1,23 @@
+.profile-form__button_type_close {
+    margin: 0 0 8px;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: 0;
+    background-image: url(../../../../images/buttons/close.svg);
+    background-color: transparent;
+    background-size: 32px;
+    background-repeat: no-repeat;
+    background-position: center;
+    -ms-flex-item-align: end;
+        -ms-grid-row-align: end;
+        align-self: end;
+}
+
+@media screen and (max-width: 767px) {
+    .profile-form__button_type_close {
+        max-width: 20px;
+        background-size: 20px;
+        margin: 0 0 12px 0px;
+    }
+}

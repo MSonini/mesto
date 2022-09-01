@@ -1,0 +1,20 @@
+.profile__button_type_add {
+    width: 150px;
+    height: 50px;
+    border: 2px solid #FFF;
+    background-image: url(../../../../images/buttons/add.svg);
+    background-color: black;
+    background-size: 22px;
+    background-repeat: no-repeat;
+    background-position: center;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+}
+
+@media screen and (max-width: 767px) {
+    .profile__button_type_add {
+        width: 100%;
+        background-size: 16px;
+    }
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="first project">
+    <meta name="keywords" content="html, css, javascript">
+    <meta name="author" content="Sonin Mikhail">
+    <title lang="en">Mesto</title>
+    <link rel="stylesheet" href="./pages/index.css">
+  </head>
+  <body class="page">
+    <div class="body">
+      <header class="header">
+        <div class="header__content">
+          <img src="./images/logo.png" alt="Mesto" lang="en" class="header__logo">
+        </div>
+      </header>
+      <main class="content">
+        <section class="profile">
+          <div class="profile__info">
+            <img src="./images/avatar.png" alt="Аватар" class="profile__avatar">
+            <div class="profile__info-text">
+              <div class="profile__name-container">
+                <h1 class="profile__name">Жак-Ив Кусто</h1>
+                <button class="button profile__button profile__button_type_edit"></button>
+              </div>
+              <p class="profile__about">Исследователь океана</p>
+            </div>
+          </div>
+          <button class="button profile__button profile__button_type_add"></button>
+
+        </section>
+        <section class="elements">
+          <div class="card">
+            <div class="card__image"></div>
+            <div class="card__info">
+              <h3 class="card__title">Карачаево-Черкесия</h3>
+              <button class="button card__button card__button_active"></button>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__image"></div>
+            <div class="card__info">
+              <h3 class="card__title">Карачаево-Черкесия</h3>
+              <button class="button card__button"></button>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__image"></div>
+            <div class="card__info">
+              <h3 class="card__title">Карачаево-Черкесия</h3>
+              <button class="button card__button"></button>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__image"></div>
+            <div class="card__info">
+              <h3 class="card__title">Карачаево-Черкесия</h3>
+              <button class="button card__button"></button>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__image"></div>
+            <div class="card__info">
+              <h3 class="card__title">Карачаево-Черкесия</h3>
+              <button class="button card__button"></button>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__image"></div>
+            <div class="card__info">
+              <h3 class="card__title">Карачаево-Черкесия</h3>
+              <button class="button card__button"></button>
+            </div>
+          </div>
+        </section>
+        <section class="popup">
+          <div class="popup__container">
+            <div class="profile-form">
+              <button class="button profile-form__button profile-form__button_type_close"></button>
+              <form class="profile-form__container">
+                <h2 class="profile-form__title">Редактировать профиль</h2>
+                <input type="text" class="profile-form__name" placeholder="Имя">
+                <input type="text" class="profile-form__about" placeholder="О себе">
+                <input type="submit" class="button profile-form__button profile-form__button_type_submit" value="Сохранить">
+              </form>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer">
+        <p class="footer__copyright" lang="en">&copy; 2020 Mesto Russia</p>
+      </footer>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>

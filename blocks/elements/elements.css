@@ -1,0 +1,19 @@
+.elements {
+    max-width: 880px;
+    min-width: 282px;
+    width: 90%;
+    margin: 51px auto 0;
+    display: -ms-grid;
+    display: grid;
+    gap: 20px 17px;
+    grid-template-columns: repeat(auto-fit, minmax(282px, auto));
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+
+@media screen and (max-width: 767px) {
+    .elements {
+        margin-top: 36px;
+    }
+}

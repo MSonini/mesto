@@ -1,0 +1,8 @@
+.card__image {
+    width: 100%;
+    min-width: 282px;
+    min-height: 282px;
+    background-image: url(../../../images/elements/elem.png);
+    background-size: cover;
+    border-radius: 10px 10px 0 0;
+}

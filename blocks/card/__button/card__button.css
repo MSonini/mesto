@@ -1,0 +1,14 @@
+.card__button {
+    padding: 0;
+    border: 0;
+    width: 22px;
+    min-height: 19px;
+    background-image: url(../../../images/buttons/like.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #FFF;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+}
