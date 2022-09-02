@@ -2,7 +2,6 @@
     width: 100%;
     min-width: 282px;
     min-height: 282px;
-    background-image: url(../../../images/elements/elem.png);
-    background-size: cover;
+    object-fit: cover;
     border-radius: 10px 10px 0 0;
 }

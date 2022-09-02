@@ -1,17 +1,13 @@
 @import url(../vendor/normalize.css);
-
-@import url(../fonts/fonts.css);
+@import url(../vendor/fonts/fonts.css);
 
 @import url(../blocks/page/page.css);
-
-@import url(../blocks/body/body.css);
 
 @import url(../blocks/content/content.css);
 
 @import url(../blocks/button/button.css);
 
 @import url(../blocks/header/header.css);
-@import url(../blocks/header/__content/header__content.css);
 @import url(../blocks/header/__logo/header__logo.css);
 
 @import url(../blocks/profile/profile.css);
@@ -21,9 +17,8 @@
 @import url(../blocks/profile/__info-text/profile__info-text.css);
 @import url(../blocks/profile/__name/profile__name.css);
 @import url(../blocks/profile/__name-container/profile__name-container.css);
-@import url(../blocks/profile/__button/profile__button.css);
-@import url(../blocks/profile/__button/_type/profile__button_type_add.css);
-@import url(../blocks/profile/__button/_type/profile__button_type_edit.css);
+@import url(../blocks/profile/__add-button/profile__add-button.css);
+@import url(../blocks/profile/__edit-button/profile__edit-button.css);
 
 @import url(../blocks/elements/elements.css);
 
@@ -41,11 +36,11 @@
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/popup/__container/popup__container.css);
 
-@import url(../blocks/profile-form/profile-form.css);
-@import url(../blocks/profile-form/__about/profile-form__about.css);
-@import url(../blocks/profile-form/__button/profile-form__button.css);
-@import url(../blocks/profile-form/__button/_type/profile-form__button_type_close.css);
-@import url(../blocks/profile-form/__button/_type/profile-form__button_type_submit.css);
-@import url(../blocks/profile-form/__container/profile-form__container.css);
-@import url(../blocks/profile-form/__name/profile-form__name.css);
-@import url(../blocks/profile-form/__title/profile-form__title.css);
+@import url(../blocks/container/container.css);
+@import url(../blocks/container/__close-button/container__close-button.css);
+@import url(../blocks/container/__form/container__form.css);
+@import url(../blocks/container/__input/_type/container__input_type_about.css);
+@import url(../blocks/container/__input/_type/container__input_type_name.css);
+@import url(../blocks/container/__input/container__input.css);
+@import url(../blocks/container/__submit-button/container__submit-button.css);
+@import url(../blocks/container/__title/container__title.css);

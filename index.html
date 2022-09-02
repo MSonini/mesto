@@ -10,89 +10,86 @@
     <link rel="stylesheet" href="./pages/index.css">
   </head>
   <body class="page">
-    <div class="body">
-      <header class="header">
-        <div class="header__content">
-          <img src="./images/logo.png" alt="Mesto" lang="en" class="header__logo">
-        </div>
-      </header>
-      <main class="content">
-        <section class="profile">
-          <div class="profile__info">
-            <img src="./images/avatar.png" alt="Аватар" class="profile__avatar">
-            <div class="profile__info-text">
-              <div class="profile__name-container">
-                <h1 class="profile__name">Жак-Ив Кусто</h1>
-                <button class="button profile__button profile__button_type_edit"></button>
-              </div>
-              <p class="profile__about">Исследователь океана</p>
-            </div>
-          </div>
-          <button class="button profile__button profile__button_type_add"></button>
+    <header class="header">
+        <div class="header__logo"></div>
+    </header>
 
-        </section>
-        <section class="elements">
-          <div class="card">
-            <div class="card__image"></div>
-            <div class="card__info">
-              <h3 class="card__title">Карачаево-Черкесия</h3>
-              <button class="button card__button card__button_active"></button>
+    <main class="content">
+      <section class="profile">
+        <div class="profile__info">
+          <img src="./images/avatar.png" alt="Аватар" class="profile__avatar">
+          <div class="profile__info-text">
+            <div class="profile__name-container">
+              <h1 class="profile__name">Жак-Ив Кусто</h1>
+              <button class="button profile__edit-button"></button>
             </div>
+            <p class="profile__about">Исследователь океана</p>
           </div>
-          <div class="card">
-            <div class="card__image"></div>
-            <div class="card__info">
-              <h3 class="card__title">Карачаево-Черкесия</h3>
-              <button class="button card__button"></button>
-            </div>
+        </div>
+        <button class="button profile__add-button"></button>
+      </section>
+
+      <section class="elements">
+        <div class="card">
+          <img class="card__image" src="./images/elements/elem.png" alt="Сентинский храм">
+          <div class="card__info">
+            <h3 class="card__title">Карачаево-Черкесия</h3>
+            <button class="button card__button card__button_active"></button>
           </div>
-          <div class="card">
-            <div class="card__image"></div>
-            <div class="card__info">
-              <h3 class="card__title">Карачаево-Черкесия</h3>
-              <button class="button card__button"></button>
-            </div>
+        </div>
+        <div class="card">
+          <img class="card__image" src="./images/elements/elem.png" alt="Сентинский храм">
+          <div class="card__info">
+            <h3 class="card__title">Карачаево-Черкесия</h3>
+            <button class="button card__button"></button>
           </div>
-          <div class="card">
-            <div class="card__image"></div>
-            <div class="card__info">
-              <h3 class="card__title">Карачаево-Черкесия</h3>
-              <button class="button card__button"></button>
-            </div>
+        </div>
+        <div class="card">
+          <img class="card__image" src="./images/elements/elem.png" alt="Сентинский храм">
+          <div class="card__info">
+            <h3 class="card__title">Карачаево-Черкесия</h3>
+            <button class="button card__button"></button>
           </div>
-          <div class="card">
-            <div class="card__image"></div>
-            <div class="card__info">
-              <h3 class="card__title">Карачаево-Черкесия</h3>
-              <button class="button card__button"></button>
-            </div>
+        </div>
+        <div class="card">
+          <img class="card__image" src="./images/elements/elem.png" alt="Сентинский храм">
+          <div class="card__info">
+            <h3 class="card__title">Карачаево-Черкесия</h3>
+            <button class="button card__button"></button>
           </div>
-          <div class="card">
-            <div class="card__image"></div>
-            <div class="card__info">
-              <h3 class="card__title">Карачаево-Черкесия</h3>
-              <button class="button card__button"></button>
-            </div>
+        </div>
+        <div class="card">
+          <img class="card__image" src="./images/elements/elem.png" alt="Сентинский храм">
+          <div class="card__info">
+            <h3 class="card__title">Карачаево-Черкесия</h3>
+            <button class="button card__button"></button>
           </div>
-        </section>
-        <section class="popup">
-          <div class="popup__container">
-            <div class="profile-form">
-              <button class="button profile-form__button profile-form__button_type_close"></button>
-              <form class="profile-form__container">
-                <h2 class="profile-form__title">Редактировать профиль</h2>
-                <input type="text" class="profile-form__name" placeholder="Имя">
-                <input type="text" class="profile-form__about" placeholder="О себе">
-                <input type="submit" class="button profile-form__button profile-form__button_type_submit" value="Сохранить">
-              </form>
-            </div>
+        </div>
+        <div class="card">
+          <img class="card__image" src="./images/elements/elem.png" alt="Сентинский храм">
+          <div class="card__info">
+            <h3 class="card__title">Карачаево-Черкесия</h3>
+            <button class="button card__button"></button>
           </div>
-        </section>
-      </main>
-      <footer class="footer">
-        <p class="footer__copyright" lang="en">&copy; 2020 Mesto Russia</p>
-      </footer>
-    </div>
-    <script src="./index.js"></script>
+        </div>
+      </section>
+
+      <div class="popup">
+        <div class="popup__container">
+          <button class="button container__close-button"></button>
+          <form class="container__form">
+            <h2 class="container__title">Редактировать профиль</h2>
+            <input type="text" class="container__input container__input_type_name" placeholder="Имя">
+            <input type="text" class="container__input container__input_type_about" placeholder="О себе">
+            <button type="submit" class="button container__submit-button">Сохранить</button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
+    </footer>
+    <script src="./scripts/index.js"></script>
   </body>
 </html>
