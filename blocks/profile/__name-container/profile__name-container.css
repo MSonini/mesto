@@ -11,7 +11,7 @@
 
 @media screen and (max-width: 767px) {
     .profile__name-container {
-        max-width: calc(100% - 56px);
+        max-width:  100%;
         -ms-flex-item-align: center;
             -ms-grid-row-align: center;
             align-self: center;

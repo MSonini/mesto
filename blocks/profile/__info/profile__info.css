@@ -1,8 +1,9 @@
 .profile__info {
-    max-width: calc(100% - 150px);
+    max-width: calc(80% - 150px);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    align-self: center;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;

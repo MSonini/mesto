@@ -1,4 +1,5 @@
 .profile__about {
+    max-width: calc(100% - 50px);
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -11,6 +12,8 @@
 
 @media screen and (max-width: 767px) {
     .profile__about {
+        align-self: center;
+        max-width: calc(100% - 36px);
         font-size: 14px;
         line-height: 17px;
         margin-bottom: 32px;
