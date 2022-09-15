@@ -30,59 +30,26 @@
       </section>
 
       <section class="elements">
-        <div class="card">
-          <img class="card__image" src="./images/elements/elem.png" alt="Сентинский храм">
-          <div class="card__info">
-            <h3 class="card__title">Карачаево-Черкесия</h3>
-            <button class="button card__button card__button_active"></button>
-          </div>
-        </div>
-        <div class="card">
-          <img class="card__image" src="./images/elements/elem.png" alt="Сентинский храм">
-          <div class="card__info">
-            <h3 class="card__title">Карачаево-Черкесия</h3>
-            <button class="button card__button"></button>
-          </div>
-        </div>
-        <div class="card">
-          <img class="card__image" src="./images/elements/elem.png" alt="Сентинский храм">
-          <div class="card__info">
-            <h3 class="card__title">Карачаево-Черкесия</h3>
-            <button class="button card__button"></button>
-          </div>
-        </div>
-        <div class="card">
-          <img class="card__image" src="./images/elements/elem.png" alt="Сентинский храм">
-          <div class="card__info">
-            <h3 class="card__title">Карачаево-Черкесия</h3>
-            <button class="button card__button"></button>
-          </div>
-        </div>
-        <div class="card">
-          <img class="card__image" src="./images/elements/elem.png" alt="Сентинский храм">
-          <div class="card__info">
-            <h3 class="card__title">Карачаево-Черкесия</h3>
-            <button class="button card__button"></button>
-          </div>
-        </div>
-        <div class="card">
-          <img class="card__image" src="./images/elements/elem.png" alt="Сентинский храм">
-          <div class="card__info">
-            <h3 class="card__title">Карачаево-Черкесия</h3>
-            <button class="button card__button"></button>
-          </div>
-        </div>
+
       </section>
 
       <div class="popup">
         <div class="popup__container">
-          <button class="button popup__close-button"></button>
-          <form class="popup__form">
-            <h2 class="popup__title">Редактировать профиль</h2>
-            <input type="text" class="popup__input popup__input_type_name" placeholder="Имя">
-            <input type="text" class="popup__input popup__input_type_about" placeholder="О себе">
-            <button type="submit" class="button popup__submit-button">Сохранить</button>
-          </form>
+          <div class="popup__form-container">
+            <button class="button popup__close-button popup__close-button_type_form"></button>
+            <form class="popup__form">
+              <h2 class="popup__title">Редактировать профиль</h2>
+              <input type="text" class="popup__input popup__input_type_name" placeholder="Имя">
+              <input type="text" class="popup__input popup__input_type_about" placeholder="О себе">
+              <button type="submit" class="button popup__submit-button">Сохранить</button>
+            </form>
+          </div>
+
+          <div class="popup__view-container">
+            <button class="button popup__close-button popup__close-button_type_view"></button>
+            <img src="#" alt="Изображение" class="popup__view-image">
+            <p class="popup__view-name"></p>
+          </div>
         </div>
       </div>
     </main>
@@ -90,6 +57,20 @@
     <footer class="footer">
       <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
+
+    <template id="card">
+      <div class="card">
+        <button class="card__image-button">
+          <img class="card__image" src="" alt="Изображение">
+        </button>
+        <button class="button card__delete-button"></button>
+        <div class="card__info">
+          <h3 class="card__title"></h3>
+          <button class="button card__like-button"></button>
+        </div>
+      </div>
+    </template>
+
     <script src="./scripts/index.js"></script>
   </body>
 </html>

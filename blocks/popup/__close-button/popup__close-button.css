@@ -1,7 +1,5 @@
 .popup__close-button {
-    position: absolute;
-    top: 155px;
-    right: 30%;
+    /* width: 100%; */
     width: 32px;
     height: 32px;
     padding: 0;
@@ -14,15 +12,14 @@
     -ms-flex-item-align: end;
         -ms-grid-row-align: end;
         align-self: end;
+    align-self: end;
 }
 
 @media screen and (max-width: 767px) {
     .popup__close-button {
-        top: 87px;
-        right: 5%;
         width: 20px;
         height: 20px;
         background-size: 20px;
-        margin: 0 0 12px 0px;
+        margin: 0 0 16px 0px;
     }
 }

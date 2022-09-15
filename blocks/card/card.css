@@ -1,5 +1,7 @@
 .card {
     color: #000000;
     border-radius: 10px;
+    width: 282px;
     background-color: #FFF;
+    position: relative;
 }

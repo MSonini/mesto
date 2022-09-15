@@ -1,0 +1,7 @@
+.popup__form-container {
+    display: none;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 510px;
+}
