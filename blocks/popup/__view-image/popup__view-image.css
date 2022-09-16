@@ -3,5 +3,11 @@
     max-width: 75vw;
     max-height: 75vh;
     /* margin: 0 auto; */
-    margin: 0;
+    margin: 0 40px;
+}
+
+@media screen and (max-width: 767px) {
+    .popup__view-image {
+        margin: 0;
+    }
 }

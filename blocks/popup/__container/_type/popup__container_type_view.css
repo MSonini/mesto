@@ -1,0 +1,9 @@
+/* .popup__container_type_view {
+
+} */
+
+@media screen and (max-width: 767px) {
+    .popup__container_type_view {
+        max-width: 80%;
+    }
+}
