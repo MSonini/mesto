@@ -1,9 +1,15 @@
 .popup__view-name {
-    margin-top: 10px;
+    margin: 10px 40px 0;
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
     line-height: 15px;
     color: #FFF;
     align-self: left;
+}
+
+@media screen and (max-width: 767px) {
+    .popup__view-name {
+        margin: 10px 0 0;
+    }
 }
