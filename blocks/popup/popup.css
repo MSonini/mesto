@@ -1,5 +1,6 @@
 .popup {
     /* display: none; */
+    cursor: pointer;
     display: flex;
     position: fixed;
     top: 0;
