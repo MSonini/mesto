@@ -1,11 +1,12 @@
+import { Card } from './Card.js'
+import { FormValidator } from './FormValidator.js';
+
 const formSelector = '.popup__form';
 const inputSelector = '.popup__input';
 const submitButtonSelector = '.popup__submit-button';
 const inactiveButtonClass = 'popup__submit-button_inactive';
 const inputErrorClass = 'popup__input-error';
 const errorClass = 'popup__input-error_active';
-
-const popups = document.querySelectorAll('.popup');
 
 const cardsContainer = document.querySelector('.elements');
 
@@ -23,6 +24,9 @@ const formCard = document.forms['card-form'];
 const profileName = document.querySelector('.profile__name');
 const profileAbout = document.querySelector('.profile__about');
 
+const viewImage = popupView.querySelector('.popup__view-image');
+const viewName = popupView.querySelector('.popup__view-name');
+
 const inputProfileName = popupProfile.querySelector('#profile-name');
 const inputProfileAbout = popupProfile.querySelector('#profile-about');
 
@@ -31,10 +35,7 @@ const btnProfileSubmit = popupProfile.querySelector(submitButtonSelector);
 const inputCardName = formCard.querySelector('#card-name');
 const inputCardAbout = formCard.querySelector('#card-about');
 
-const viewImage = popupView.querySelector('.popup__view-image');
-const viewName = popupView.querySelector('.popup__view-name');
-
-const cardTemplate = document.querySelector('#card').content;
+const cardTemplateSelector = '#card';
 
 const initialCards = [
     {
@@ -83,18 +84,7 @@ function submitCardForm(evt) {
 };
 
 function prependCard(name, link) {
-    cardsContainer.prepend(createCard(name, link));
-};
-
-function createCard(name, link) {
-    const cardElement = cardTemplate.querySelector('.card').cloneNode(true);
-
-    const cardImage = cardElement.querySelector('.card__image');
-    cardImage.src = link;
-    cardImage.alt = name;
-
-    cardElement.querySelector('.card__title').textContent = name;
-
+    const cardElement = (new Card({name, link}, cardTemplateSelector)).getElement();
     const btnOpenImage = cardElement.querySelector('.card__image-button');
     btnOpenImage.addEventListener('click', () => {
         viewImage.src = link;
@@ -103,18 +93,23 @@ function createCard(name, link) {
 
         openPopup(popupView);
     });
+    cardsContainer.prepend(cardElement);
+};
 
-    const btnDelete = cardElement.querySelector('.card__delete-button');
-    btnDelete.addEventListener('click', () => {
-        cardElement.remove();
-    });
+const hasInvalidInput = (inputList) => {
+    return inputList.some((inputElement) => {
+        return !inputElement.validity.valid;
+    }); 
+}
 
-    const btnLike = cardElement.querySelector('.card__like-button');
-    btnLike.addEventListener('click', () => {
-        btnLike.classList.toggle('card__like-button_active');
-    });
-
-    return cardElement
+const toggleButtonState = (inputList, buttonElement, inactiveButtonClass) => {
+    if (hasInvalidInput(inputList)) {
+        buttonElement.classList.add(inactiveButtonClass);
+        buttonElement.disabled = true;
+    } else {
+        buttonElement.classList.remove(inactiveButtonClass);
+        buttonElement.disabled = false;
+    }
 }
 
 function openProfileForm() {
@@ -177,4 +172,20 @@ window.addEventListener('load', function () {
 closeButtons.forEach((button) => {
   const popup = button.closest('.popup');
   button.addEventListener('click', () => closePopup(popup));
+});
+
+const enableFormsValidation = (settings={}) => {
+    const formList = Array.from(document.querySelectorAll(settings.formSelector));
+    formList.forEach((formElement) => {
+        new FormValidator(settings, formElement).enableValidation();
+    });
+};
+
+enableFormsValidation({
+    formSelector: formSelector,
+    inputSelector: inputSelector,
+    submitButtonSelector: submitButtonSelector,
+    inactiveButtonClass: inactiveButtonClass,
+    inputErrorClass: inputErrorClass,
+    errorClass: errorClass,
 });
