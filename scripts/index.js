@@ -30,12 +30,12 @@ const viewName = popupView.querySelector('.popup__view-name');
 const inputProfileName = popupProfile.querySelector('#profile-name');
 const inputProfileAbout = popupProfile.querySelector('#profile-about');
 
-const btnProfileSubmit = popupProfile.querySelector(submitButtonSelector);
-
 const inputCardName = formCard.querySelector('#card-name');
 const inputCardAbout = formCard.querySelector('#card-about');
 
 const cardTemplateSelector = '#card';
+
+const formValidators = {}
 
 const initialCards = [
     {
@@ -62,8 +62,14 @@ const initialCards = [
       name: 'Байкал',
       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
-  ]; 
+]; 
 
+function handleCardClick(name, link) {
+    viewImage.src = link;
+    viewImage.alt = name;
+    viewName.textContent = name;
+    openPopup(popupView);
+}
 
 function submitProfileForm(evt) {
     evt.preventDefault();
@@ -83,34 +89,14 @@ function submitCardForm(evt) {
     closePopup(popupCard);
 };
 
-function prependCard(name, link) {
-    const cardElement = (new Card({name, link}, cardTemplateSelector)).getElement();
-    const btnOpenImage = cardElement.querySelector('.card__image-button');
-    btnOpenImage.addEventListener('click', () => {
-        viewImage.src = link;
-        viewImage.alt = name;
-        viewName.textContent = name;
+function createCard(name, link) {
+    return new Card({name, link}, cardTemplateSelector, handleCardClick).getElement()
+}
 
-        openPopup(popupView);
-    });
+function prependCard(name, link) {
+    const cardElement = createCard(name, link);
     cardsContainer.prepend(cardElement);
 };
-
-const hasInvalidInput = (inputList) => {
-    return inputList.some((inputElement) => {
-        return !inputElement.validity.valid;
-    }); 
-}
-
-const toggleButtonState = (inputList, buttonElement, inactiveButtonClass) => {
-    if (hasInvalidInput(inputList)) {
-        buttonElement.classList.add(inactiveButtonClass);
-        buttonElement.disabled = true;
-    } else {
-        buttonElement.classList.remove(inactiveButtonClass);
-        buttonElement.disabled = false;
-    }
-}
 
 function openProfileForm() {
     profileName.textContent.trim();
@@ -119,8 +105,7 @@ function openProfileForm() {
     inputProfileName.value = profileName.textContent;
     inputProfileAbout.value = profileAbout.textContent;
 
-    const inputList = Array.from(popupProfile.querySelectorAll(inputSelector));
-    toggleButtonState(inputList, btnProfileSubmit, inactiveButtonClass);
+    formValidators[formProfile.getAttribute('name')].resetValidation();
 
     openPopup(popupProfile);
 };
@@ -152,8 +137,7 @@ function closePopupOnOverlayClick(evt) {
     const target = evt.target;
     if (target.classList.contains('popup_opened') ||
         target.classList.contains('popup__container')) {
-        const openedPopup = document.querySelector('.popup_opened');
-        closePopup(openedPopup);
+        closePopup(target);
     };
 };
 
@@ -177,7 +161,10 @@ closeButtons.forEach((button) => {
 const enableFormsValidation = (settings={}) => {
     const formList = Array.from(document.querySelectorAll(settings.formSelector));
     formList.forEach((formElement) => {
-        new FormValidator(settings, formElement).enableValidation();
+        const validator = new FormValidator(settings, formElement);
+        const formName = formElement.getAttribute('name');
+        formValidators[formName] = validator;
+        validator.enableValidation();
     });
 };
 
