@@ -7,7 +7,6 @@
     <meta name="keywords" content="html, css, javascript">
     <meta name="author" content="Sonin Mikhail">
     <title lang="en">Mesto</title>
-    <link rel="stylesheet" href="./pages/index.css">
   </head>
   <body class="page">
     <header class="header">
@@ -17,7 +16,7 @@
     <main class="content">
       <section class="profile">
         <div class="profile__info">
-          <img src="./images/avatar.png" alt="Аватар" class="profile__avatar">
+          <img src="<%=require('./images/avatar.png')%>" alt="Аватар" class="profile__avatar">
           <div class="profile__info-text">
             <div class="profile__name-container">
               <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -93,9 +92,5 @@
         </div>
       </div>
     </template>
-
-    <script type="module" src="./scripts/Card.js"></script>
-    <script type="module" src="./scripts/FormValidator.js"></script>
-    <script type="module" src="./scripts/index.js"></script>
   </body>
 </html>
