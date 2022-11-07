@@ -37,11 +37,11 @@
           <form class="popup__form" name="profile-form">
             <h2 class="popup__title">Редактировать профиль</h2>
             <label class="popup__field popup__field_type_name">
-              <input type="text" class="popup__input" id="profile-name" placeholder="Название" minlength="2" maxlength="40" required>
+              <input type="text" class="popup__input" id="profile-name" name="name" placeholder="Название" minlength="2" maxlength="40" required>
               <span class="popup__input-error popup__input-error_type_name" id="profile-name-error"></span>
             </label>
             <label class="popup__field popup__field_type_about">
-              <input type="text" class="popup__input" id="profile-about" placeholder="Ссылка на картинку" minlength="2" maxlength="200" required>
+              <input type="text" class="popup__input" id="profile-about" name="about" placeholder="Ссылка на картинку" minlength="2" maxlength="200" required>
               <span class="popup__input-error popup__input-error_type_about" id="profile-about-error"></span>
             </label>
             <button type="submit" class="button popup__submit-button">Сохранить</button>
@@ -55,11 +55,11 @@
           <form class="popup__form" name="card-form">
             <h2 class="popup__title">Новое место</h2>
             <label class="popup__field popup__field_type_name">
-              <input type="text" class="popup__input" id="card-name" placeholder="Название" minlength="2" maxlength="30" required>
+              <input type="text" class="popup__input" id="card-name" name="name" placeholder="Название" minlength="2" maxlength="30" required>
               <span class="popup__input-error popup__input-error_type_name" id="card-name-error"></span>
             </label>
             <label class="popup__field popup__field_type_about">
-              <input type="url" class="popup__input" id="card-about" placeholder="Ссылка на картинку" required>
+              <input type="url" class="popup__input" id="card-about" name="about" placeholder="Ссылка на картинку" required>
               <span class="popup__input-error popup__input-error_type_about" id="card-about-error"></span>
             </label>
             <button type="submit" class="button popup__submit-button">Создать</button>
