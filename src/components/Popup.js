@@ -5,35 +5,32 @@ export default class Popup {
   }
 
   open() {
-    document.addEventListener("keydown", this._handleEscPress.bind(this));
+    document.addEventListener("keydown", this._handleEscPress);
     this._element.classList.add("popup_opened");
   }
 
   close() {
-    document.removeEventListener("keydown", this._handleEscPress.bind(this));
+    document.removeEventListener("keydown", this._handleEscPress);
     this._element.classList.remove("popup_opened");
   }
 
   setEventListeners() {
     this._closeButton.addEventListener("click", () => this.close());
-    this._element.addEventListener(
-      "click",
-      this._handleOverlayClick.bind(this)
-    );
+    this._element.addEventListener("click", this._handleOverlayClick);
   }
 
-  _handleEscPress(evt) {
+  _handleEscPress = (evt) => {
     if (evt.key === "Escape") {
       this.close();
     }
-  }
+  };
 
-  _handleOverlayClick(evt) {
+  _handleOverlayClick = (evt) => {
     if (
       evt.target.classList.contains("popup_opened") ||
       evt.target.classList.contains("popup__container")
     ) {
       this.close();
     }
-  }
+  };
 }
