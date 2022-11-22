@@ -16,7 +16,9 @@
     <main class="content">
       <section class="profile">
         <div class="profile__info">
-          <img src="<%=require('./images/avatar.png')%>" alt="Аватар" class="profile__avatar">
+          <button class="profile__avatar">
+            <img src="<%=require('./images/buttons/edit-avatar.svg')%>" alt="Редактировать" class="profile__edit-avatar">
+          </button>
           <div class="profile__info-text">
             <div class="profile__name-container">
               <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -74,7 +76,32 @@
           <p class="popup__view-name"></p>
         </div>
       </div>
+
+      <div class="popup popup_type_confirm">
+        <div class="popup__container popup__container_type_form"> 
+          <button class="button popup__close-button popup__close-button_type_form"></button>
+          <div class="popup__confirm-form">
+            <h2 class="popup__title">Вы уверены?</h2>
+            <button type="submit" class="button popup__submit-button popup__submit-button_type_confirm">Да</button>
+          </div>
+        </div>
+      </div>
     </main>
+
+
+    <div class="popup popup_type_avatar">
+      <div class="popup__container popup__container_type_form"> 
+        <button class="button popup__close-button popup__close-button_type_form"></button>
+        <form class="popup__form popup__form_type_avatar" name="avatar-form">
+          <h2 class="popup__title">Обновить аватар</h2>
+          <label class="popup__field popup__field_type_avatar">
+            <input type="url" class="popup__input" id="avatar-about" name="about" placeholder="Ссылка на аватар" required>
+            <span class="popup__input-error popup__input-error_type_about" id="avatar-about-error"></span>
+          </label>
+          <button type="submit" class="button popup__submit-button popup__submit-button_type_avatar">Да</button>
+        </form>
+      </div>
+    </div>
 
     <footer class="footer">
       <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
@@ -88,7 +115,11 @@
         <button class="button card__delete-button"></button>
         <div class="card__info">
           <h3 class="card__title"></h3>
-          <button class="button card__like-button"></button>
+          <div class="card__like-container">
+            <button class="button card__like-button"></button>
+            <p class="card__like-amount"></p>
+          </div>
+          
         </div>
       </div>
     </template>

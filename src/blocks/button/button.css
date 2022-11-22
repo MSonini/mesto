@@ -1,12 +1,12 @@
 .button {
-    cursor: pointer;
-    margin: 0;
-    padding: 0;
-    -webkit-transition: opacity .5s ease;
-    -o-transition: opacity .5s ease;
-    transition: opacity .5s ease;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  -webkit-transition: opacity 0.5s ease;
+  -o-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
 }
 
 .button:hover {
-    opacity: 0.6;
+  opacity: 0.6;
 }

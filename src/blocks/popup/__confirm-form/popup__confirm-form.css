@@ -1,0 +1,13 @@
+.popup__confirm-form {
+  position: relative;
+  cursor: default;
+  max-width: 430px;
+  min-width: 282px;
+  width: 90%;
+  min-height: 181px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+}

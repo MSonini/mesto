@@ -10,55 +10,37 @@ const titleSelector = ".popup__view-name";
 
 const popupProfileSelector = ".popup_type_profile";
 const popupCardSelector = ".popup_type_card";
+const popupAvatarSelector = ".popup_type_avatar";
 const popupViewSelector = ".popup_type_view";
+const popupConfirmSelector = ".popup_type_confirm";
 
 const profileNameSelector = ".profile__name";
 const profileAboutSelector = ".profile__about";
+const profileAvatarSelector = ".profile__avatar";
 
 const cardTemplateSelector = "#card";
 
 const containerSelector = ".elements";
 
 const btnProfileEdit = document.querySelector(".profile__edit-button");
+const btnAvatarEdit = document.querySelector(".profile__edit-avatar");
 const btnCardAdd = document.querySelector(".profile__add-button");
 
-const initialCards = [
-  {
-    name: "Архыз",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
-  },
-  {
-    name: "Челябинская область",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
-  },
-  {
-    name: "Иваново",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
-  },
-  {
-    name: "Камчатка",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
-  },
-  {
-    name: "Холмогорский район",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
-  },
-  {
-    name: "Байкал",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
-  },
-];
+const BASE_URL = "https://mesto.nomoreparties.co/v1/cohort-54";
+const AUTH_KEY = "ad02f25c-8ecc-4315-97b8-cf739e1d74e3";
 
 export {
-  initialCards,
   popupCardSelector,
   popupProfileSelector,
+  popupAvatarSelector,
   popupViewSelector,
+  popupConfirmSelector,
   inputSelector,
   imageSelector,
   titleSelector,
   profileNameSelector,
   profileAboutSelector,
+  profileAvatarSelector,
   containerSelector,
   closeButtonSelector,
   cardTemplateSelector,
@@ -68,5 +50,8 @@ export {
   errorClass,
   inputErrorClass,
   btnProfileEdit,
+  btnAvatarEdit,
   btnCardAdd,
+  BASE_URL,
+  AUTH_KEY,
 };
