@@ -112,40 +112,44 @@ const container = new Section((item) => {
 
 function submitProfileForm(evt, { name, about }) {
   evt.preventDefault();
-  profilePopup.handleRequest(() => {
-    api.editProfileInfo({ name, about }).then((res) => user.setUserInfo(res));
-  }, "Сохранение...");
-  profilePopup.close();
+  profilePopup.renderLoading(true);
+  return api
+    .editProfileInfo({ name, about })
+    .then((res) => user.setUserInfo(res))
+    .catch(console.log);
 }
 
 function submitCardForm(evt, { name, about }) {
   evt.preventDefault();
-  cardPopup.handleRequest(() => {
-    api.addCard({ name, link: about }).then((card) => {
+  cardPopup.renderLoading(true);
+  return api
+    .addCard({ name, link: about })
+    .then((card) => {
       container.addItem(createNewCardElement(card));
-    });
-  }, "Создание...");
-  cardPopup.close();
+    })
+    .catch(console.log);
 }
 
 function submitAvatarForm(evt, { about }) {
   evt.preventDefault();
-  avatarPopup.handleRequest(() => {
-    api.editProfileAvatar(about).then((res) => {
+  avatarPopup.renderLoading(true);
+  return api
+    .editProfileAvatar(about)
+    .then((res) => {
       user.setUserInfo(res);
-    });
-  }, "Сохранение...");
-  avatarPopup.close();
+    })
+    .catch(console.log);
 }
 
-function submitCardDeletion(evt) {
+function submitCardDeletion(evt, cardId, card) {
   evt.preventDefault();
-  deleteCardPopup.handleRequest((cardId, card) => {
-    api.removeCard(cardId).then((res) => {
+  deleteCardPopup.renderLoading(true, "Удаление...");
+  return api
+    .removeCard(cardId)
+    .then((res) => {
       card.remove();
-    });
-  }, "Удаление...");
-  deleteCardPopup.close();
+    })
+    .catch(console.log);
 }
 
 btnProfileEdit.addEventListener("click", () => {
@@ -170,30 +174,30 @@ const enableFormsValidation = (settings = {}) => {
 };
 
 window.addEventListener("load", () => {
-  api.getProfileData().then((res) => {
-    user.setUserInfo(res);
-  });
-  api.getCards().then((res) => {
-    container.renderItems(res);
-  });
+  Promise.all([api.getProfileData(), api.getCards()])
+    .then(([profileData, cards]) => {
+      user.setUserInfo(profileData);
+      container.renderItems(cards);
+    })
+    .catch(console.log);
 });
 
 enableFormsValidation({
-  formSelector: formSelector,
-  inputSelector: inputSelector,
-  submitButtonSelector: submitButtonSelector,
-  inactiveButtonClass: inactiveButtonClass,
-  inputErrorClass: inputErrorClass,
-  errorClass: errorClass,
+  formSelector,
+  inputSelector,
+  submitButtonSelector,
+  inactiveButtonClass,
+  inputErrorClass,
+  errorClass,
 });
 
 const cardHandlers = {
   cardClick: (name, link) => viewPopup.open(name, link),
   likeClick: (cardId, currentIsLiked, handleLikesCallback) => {
-    let res = currentIsLiked ? api.removeLike(cardId) : api.setLike(cardId);
+    const res = currentIsLiked ? api.removeLike(cardId) : api.setLike(cardId);
     res.then((card) => {
-      let resIsLiked = checkIsLiked(card);
-      let resCardsAmout = card.likes.length;
+      const resIsLiked = checkIsLiked(card);
+      const resCardsAmout = card.likes.length;
       handleLikesCallback(resCardsAmout, resIsLiked);
     });
   },
@@ -209,7 +213,7 @@ function checkIsLiked(card) {
 }
 
 function createNewCardElement(card) {
-  let cardData = {
+  const cardData = {
     name: card.name,
     link: card.link,
     likes: card.likes.length,

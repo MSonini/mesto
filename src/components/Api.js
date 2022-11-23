@@ -9,12 +9,10 @@ export default class Api {
       method: method.toUpperCase(),
       body: body ? JSON.stringify(body) : body,
       headers: this._headers,
-    })
-      .then((res) => {
-        if (res.ok) return res.json();
-        return Promise.reject(`Ошибка: ${res.status}`);
-      })
-      .catch(console.log);
+    }).then((res) => {
+      if (res.ok) return res.json();
+      return Promise.reject(`Ошибка: ${res.status}`);
+    });
   }
 
   getProfileData() {

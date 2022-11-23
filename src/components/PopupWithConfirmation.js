@@ -8,13 +8,15 @@ export default class PopupWithConfirmation extends Popup {
     super(popupSelector, closeButtonSelector);
     this._submitCallback = submitCallback;
     this._submitButton = this._element.querySelector(submitButtonSelector);
+    this._submitButtonText = this._submitButton.textContent;
   }
 
-  handleRequest(requestCallBack, buttonText) {
-    let text = this._submitButton.textContent;
-    this._submitButton.textContent = buttonText;
-    requestCallBack(this._cardId, this._card);
-    this._submitButton.textContent = text;
+  renderLoading(isLoading, loadingText = "Сохранение...") {
+    if (isLoading) {
+      this._submitButton.textContent = loadingText;
+    } else {
+      this._submitButton.textContent = this._submitButtonText;
+    }
   }
 
   open(cardId, card) {
@@ -32,7 +34,9 @@ export default class PopupWithConfirmation extends Popup {
   setEventListeners() {
     super.setEventListeners();
     this._submitButton.addEventListener("click", (evt) =>
-      this._submitCallback(evt)
+      this._submitCallback(evt, this._cardId, this._card)
+        .then(() => this.close())
+        .finally(() => this.renderLoading(false))
     );
   }
 }

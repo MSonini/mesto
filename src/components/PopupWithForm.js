@@ -14,15 +14,17 @@ export default class PopupWithForm extends Popup {
     super(popupSelector, closeButtonSelector);
     this._submitForm = submitForm;
     this._submitButton = this._element.querySelector(submitButtonSelector);
+    this._submitButtonText = this._submitButton.textContent;
     this._form = this._element.querySelector(formSelector);
     this._inputList = Array.from(this._form.querySelectorAll(inputSelector));
   }
 
-  handleRequest(requestCallBack, buttonText) {
-    let text = this._submitButton.textContent;
-    this._submitButton.textContent = buttonText;
-    requestCallBack();
-    this._submitButton.textContent = text;
+  renderLoading(isLoading, loadingText = "Сохранение...") {
+    if (isLoading) {
+      this._submitButton.textContent = loadingText;
+    } else {
+      this._submitButton.textContent = this._submitButtonText;
+    }
   }
 
   _getInputValues() {
@@ -37,6 +39,8 @@ export default class PopupWithForm extends Popup {
     super.setEventListeners();
     this._element.addEventListener("submit", (evt) =>
       this._submitForm(evt, this._getInputValues())
+        .then(() => this.close())
+        .finally(() => this.renderLoading(false))
     );
   }
 

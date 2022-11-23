@@ -7,7 +7,7 @@ export default class UserInfo {
   }
 
   getUserInfo() {
-    let avatarUrl = this._avatar.style.backgroundImage.split("'")[1];
+    const avatarUrl = this._avatar.style.backgroundImage.split("'")[1];
     return {
       name: this._name.textContent,
       about: this._about.textContent,
